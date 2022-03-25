@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-
 # Initiate app instance
 app = FastAPI()
 
