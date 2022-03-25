@@ -32,4 +32,4 @@ async def predict(identifiant: int):
 #     # Create prediction
 #     prediction = np.concatenate(xgb_cl_undersampling.predict_proba(data_df))[1]
     
-    return {"prediction": np.array(data_df)[0][0]}
+    return {"prediction": np.array(data_df)[0][4]}
