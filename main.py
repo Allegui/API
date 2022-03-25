@@ -27,8 +27,8 @@ xgb_cl_undersampling = pickle.load(pickle_in)
 @app.get("/predict/{identifiant}")
 async def predict(identifiant: int):
     
-    data_df = test_X.loc[test_X.index==np.asscalar(SK_ID_CURR_test_X.loc[SK_ID_CURR_test_X['SK_ID_CURR']==identifiant].index),:]
+#     data_df = test_X.loc[test_X.index==np.asscalar(SK_ID_CURR_test_X.loc[SK_ID_CURR_test_X['SK_ID_CURR']==identifiant].index),:]
     
-    # Create prediction
-    prediction = float(xgb_cl_undersampling.predict_proba(data_df)[0][1])
-    return {"prediction": prediction}
+#     # Create prediction
+#     prediction = float(xgb_cl_undersampling.predict_proba(data_df)[0][1])
+    return {"prediction": identifiant+10}
