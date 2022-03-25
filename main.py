@@ -1,8 +1,8 @@
-import uvicorn
-import numpy as np
-import pandas as pd
-import pickle
-# FastAPI libray
+# import uvicorn
+# import numpy as np
+# import pandas as pd
+# import pickle
+# # FastAPI libray
 from fastapi import FastAPI
 
 
@@ -24,7 +24,6 @@ app = FastAPI()
 
 @app.get("/predict/{name}")
 async def predict(name: str):
-  
     return f"My name is {name}"
 
 
