@@ -2,7 +2,7 @@ import uvicorn
 import numpy as np
 import pandas as pd
 import pickle
-import xgboost as xgb
+import xgboost
 # FastAPI libray
 from fastapi import FastAPI
 
@@ -18,9 +18,8 @@ SK_ID_CURR_test_X = SK_ID_CURR_test_X.drop(["Unnamed: 0"], axis=1)
 app = FastAPI()
 
 
-xgb_cl_undersampling = xgb.XGBClassifier()
-xgb_cl_undersampling.load_model("xgb_cl_undersampling.json")
-
+pickle_in = open("xgb_cl_undersampling.pkl","rb")
+xgb_cl_undersampling = pickle.load(pickle_in)
 
 # ML API endpoint for making prediction aganist the request received from client
 
