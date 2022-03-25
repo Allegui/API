@@ -29,6 +29,7 @@ async def predict(identifiant: int):
     
     data_df = test_X.loc[test_X.index==np.asscalar(SK_ID_CURR_test_X.loc[SK_ID_CURR_test_X['SK_ID_CURR']==identifiant].index),:]
     
-    # Create prediction
-    prediction = np.concatenate(xgb_cl_undersampling.predict_proba(data_df))[1]
-    return {"prediction": prediction}
+#     # Create prediction
+#     prediction = np.concatenate(xgb_cl_undersampling.predict_proba(data_df))[1]
+    
+    return {"prediction": np.array(data_df)[0][0]}
