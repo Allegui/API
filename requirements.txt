@@ -94,4 +94,5 @@ watchdog==2.1.6
 wcwidth==0.2.5
 websocket-client==1.2.3
 Werkzeug==2.0.3
+xgboost
 zipp==3.7.0
