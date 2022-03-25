@@ -2,7 +2,7 @@ import uvicorn
 import numpy as np
 import pandas as pd
 import pickle
-#import xgboost
+import xgboost
 # FastAPI libray
 from fastapi import FastAPI
 
