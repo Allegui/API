@@ -7,21 +7,21 @@ import xgboost
 from fastapi import FastAPI
 
 
-test_X = pd.read_csv('test_X.csv')
-test_X = test_X.drop(["Unnamed: 0"], axis=1)
+# test_X = pd.read_csv('test_X.csv')
+# test_X = test_X.drop(["Unnamed: 0"], axis=1)
 
-SK_ID_CURR_test_X = pd.read_csv('SK_ID_CURR_test_X.csv')
-SK_ID_CURR_test_X = SK_ID_CURR_test_X.drop(["Unnamed: 0"], axis=1)
+# SK_ID_CURR_test_X = pd.read_csv('SK_ID_CURR_test_X.csv')
+# SK_ID_CURR_test_X = SK_ID_CURR_test_X.drop(["Unnamed: 0"], axis=1)
 
 
 # Initiate app instance
 app = FastAPI()
 
 
-pickle_in = open("xgb_cl_undersampling.pkl","rb")
-xgb_cl_undersampling = pickle.load(pickle_in)
+# pickle_in = open("xgb_cl_undersampling.pkl","rb")
+# xgb_cl_undersampling = pickle.load(pickle_in)
 
-# ML API endpoint for making prediction aganist the request received from client
+# # ML API endpoint for making prediction aganist the request received from client
 
   
 @app.get("/predict/{identifiant}")
