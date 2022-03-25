@@ -16,9 +16,9 @@ from fastapi import FastAPI
 # Initiate app instance
 app = FastAPI()
 
-# Import Model
-pickle_in = open("xgb_cl_undersampling.pkl","rb")
-xgb_cl_undersampling = pickle.load(pickle_in)
+# # Import Model
+# pickle_in = open("xgb_cl_undersampling.pkl","rb")
+# xgb_cl_undersampling = pickle.load(pickle_in)
 
 
 
