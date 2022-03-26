@@ -1,7 +1,7 @@
 import uvicorn
 import numpy as np
 import pandas as pd
-import pickle
+import joblib
 import xgboost
 # FastAPI libray
 from fastapi import FastAPI
@@ -18,8 +18,8 @@ SK_ID_CURR_test_X = SK_ID_CURR_test_X.drop(["Unnamed: 0"], axis=1)
 app = FastAPI()
 
 
-pickle_in = open("xgb_cl_undersampling.pkl","rb")
-xgb_cl_undersampling = pickle.load(pickle_in)
+model = open('xgb_cl_undersampling.joblib','rb')
+xgb_cl_undersampling = joblib.load(model)
 
 # # ML API endpoint for making prediction aganist the request received from client
 
@@ -29,14 +29,11 @@ async def predict(identifiant: int):
     
     data_df = test_X.loc[test_X.index==np.asscalar(SK_ID_CURR_test_X.loc[SK_ID_CURR_test_X['SK_ID_CURR']==identifiant].index),:]
     
-#     # Create prediction
-#     prediction = np.array(xgb_cl_undersampling.predict_proba(data_df),dtype='float64')[0][1]
+    # Create prediction
+    prediction = np.array(xgb_cl_undersampling.predict_proba(data_df),dtype='float64')[0][1]
   
-  
-    
-    prediction = np.array(data_df)[0][4]
+#     prediction = np.array(data_df)[0][4]
 
-    
     return {"prediction": prediction}
   
   
