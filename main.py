@@ -17,9 +17,7 @@ SK_ID_CURR_test_X = SK_ID_CURR_test_X.drop(["Unnamed: 0"], axis=1)
 # Initiate app instance
 app = FastAPI()
 
-
-model = open('xgb_cl_undersampling.joblib','rb')
-xgb_cl_undersampling = joblib.load(model)
+xgb_cl_undersampling = joblib.load('xgb_cl_undersampling.joblib')
 
 # # ML API endpoint for making prediction aganist the request received from client
 
