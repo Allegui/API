@@ -21,8 +21,10 @@ xgb_cl_undersampling = joblib.load('xgb_cl_undersampling.joblib')
 
 # # ML API endpoint for making prediction aganist the request received from client
 
-  
-@app.get("/predict/{identifiant}")
+
+# /{identifiant}
+
+@app.get("/predict")
 async def predict(identifiant: int):
     
     data_df = test_X.loc[test_X.index==np.asscalar(SK_ID_CURR_test_X.loc[SK_ID_CURR_test_X['SK_ID_CURR']==identifiant].index),:]
