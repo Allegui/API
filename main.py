@@ -38,7 +38,7 @@ xgb_cl_undersampling = joblib.load('xgb_cl_undersampling.joblib')
 
 
 def predict(resp) : 
-    score = xgb_cl_undersampling.predict_proba(resp)[0][1]    
+    score = xgb_cl_undersampling.predict_proba(resp)[0][0]    
     return {"score" : str(score)}
     
 
