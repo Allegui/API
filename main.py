@@ -43,9 +43,17 @@ def predict(resp) :
     
 
 @app.get('/get_predict')
-def get_predict(identifiant: int) :
+async def get_predict(identifiant: int) :
     resp = test_X.loc[test_X.index==np.asscalar(SK_ID_CURR_test_X.loc[SK_ID_CURR_test_X['SK_ID_CURR']==identifiant].index),:]
     return predict(resp)
+
+
+@app.get('/get_variable')
+async def get_predict(identifiant: int) :
+    resp = test_X.loc[test_X.index==np.asscalar(SK_ID_CURR_test_X.loc[SK_ID_CURR_test_X['SK_ID_CURR']==identifiant].index),:]
+    return np.array(resp)[0][4]
+
+
   
   
 if __name__ == '__main__' : 
