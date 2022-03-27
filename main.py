@@ -38,7 +38,7 @@ xgb_cl_undersampling = joblib.load('xgb_cl_undersampling.joblib')
 
 
 def predict(resp) : 
-    score = xgb_cl_undersampling.predict_proba(resp)[0][0]    
+    score = xgb_cl_undersampling.predict_proba(resp)[0][1]    
     return {"score" : str(score)}
     
 
@@ -49,7 +49,7 @@ async def get_predict(identifiant: int) :
 
 
 @app.get('/get_variable')
-async def get_predict(identifiant: int) :
+async def get_variable(identifiant: int) :
     resp = test_X.loc[test_X.index==np.asscalar(SK_ID_CURR_test_X.loc[SK_ID_CURR_test_X['SK_ID_CURR']==identifiant].index),:]
     return np.array(resp)[0][4]
 
