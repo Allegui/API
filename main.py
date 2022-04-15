@@ -19,8 +19,13 @@ app = FastAPI()
 
 xgb_cl_undersampling = joblib.load('xgb_cl_undersampling.joblib')
 
-# # ML API endpoint for making prediction aganist the request received from client
 
+
+
+@app.get('/get_variable')
+async def get_variable(identifiant: int) :
+    resp = test_X.loc[test_X.index==np.asscalar(SK_ID_CURR_test_X.loc[SK_ID_CURR_test_X['SK_ID_CURR']==identifiant].index),:]
+    return {f"valeur de la variable de l'individu {identifiant}" : np.array(resp)[0][4]}
 
 
 def predict(resp) : 
@@ -34,11 +39,6 @@ async def get_predict(identifiant: int) :
     return predict(resp)
 
 
-@app.get('/get_variable')
-async def get_variable(identifiant: int) :
-    resp = test_X.loc[test_X.index==np.asscalar(SK_ID_CURR_test_X.loc[SK_ID_CURR_test_X['SK_ID_CURR']==identifiant].index),:]
-    return {f"valeur de la variable de l'individu {identifiant}" : np.array(resp)[0][4]}
-
   
-# if __name__ == '__main__' : 
-#     uvicorn.run(app, host="127.0.0.1",port=8000)  
+if __name__ == '__main__' : 
+    uvicorn.run(app, host="127.0.0.1",port=8000)  
