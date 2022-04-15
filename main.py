@@ -40,5 +40,5 @@ async def get_variable(identifiant: int) :
     return {f"valeur de la variable de l'individu {identifiant}" : np.array(resp)[0][4]}
 
   
-if __name__ == '__main__' : 
-    uvicorn.run(app, host="127.0.0.1",port=8000)  
+# if __name__ == '__main__' : 
+#     uvicorn.run(app, host="127.0.0.1",port=8000)  
