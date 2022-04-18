@@ -36,8 +36,7 @@ def predict(resp) :
 @app.get('/get_predict')
 async def get_predict(identifiant: int) :
     resp = test_X.loc[test_X.index==np.asscalar(SK_ID_CURR_test_X.loc[SK_ID_CURR_test_X['SK_ID_CURR']==identifiant].index),:]
-    resp_ = 0.69
-    return predict(resp_)
+    return predict(resp)
 
 
   
