@@ -30,7 +30,7 @@ async def get_variable(identifiant: int) :
 
 def predict(resp) : 
     score = xgb_cl_undersampling.predict_proba(resp)[0][1]    
-    return {"score" : str(score)}
+    return score
     
 
 @app.get('/get_predict')
